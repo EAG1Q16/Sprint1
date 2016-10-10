@@ -1,0 +1,48 @@
+<div class="user-panel row" ng-controller="UsersCtrl">
+    <div class="panel panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Usuarios Registrados</div>
+        <div class="panel-body">
+            <div class="col-sm-2">
+                <label>Nombre:</label>
+                <input class="form-control" id="ex1" type="text" ng-model="NewUser.name" required>
+            </div>
+            <div class="col-sm-2">
+                <label>Correo:</label>
+                <input class="form-control" id="ex2" type="text" ng-model="NewUser.email" required>
+            </div>
+            <div class="col-sm-2">
+                <label>Descripción:</label>
+                <input class="form-control" id="ex3" type="text" ng-model="NewUser.description" required>
+            </div>
+            <div class="col-sm-2">
+                <label>Foto Link:</label>
+                <input class="form-control" id="ex4" type="text" ng-model="NewUser.photo" required>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-success btn-block" ng-click="CreateUser()">Nuevo</button>
+                <button type="button" class="btn btn-success btn-warning btn-block" ng-click="UpdateUser()">Editar</button>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table">
+            <tr class="info">
+                <td>Imagen</td>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>Descripción</td>
+                <td>Acciones</td>
+                <td></td>
+            </tr>
+            <tr ng-repeat="user in users | orderBy:'name'">
+                <td><img class="img-circle" ng-src="{{user.photo}}" height="40" width="40"></td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.description}}</td>
+                <td><button class="btn btn-danger" ng-click="DeleteUser(user._id)">Eliminar</button></td>
+                <td><button class="btn btn-primary" ng-click="UseUser(user)">Seleccionar</button></td>
+            </tr>
+        </table>
+    </div>
+
+</div>

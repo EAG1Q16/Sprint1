@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GeoFinderApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
+    <!-- JS -->
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/GeoFinderApp.js"></script>
+    <script src="js/controllers/UsersCtrl.js"></script>
+
+</head>
+<body>
+<header ng-include="'views/header.html'"></header>
+<ng-view></ng-view>
+
+</body>
+</html>
