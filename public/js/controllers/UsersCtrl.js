@@ -1,7 +1,7 @@
 /**
  * Created by tonim on 05/10/2016.
  */
-angular.module('GeoFinderApp').controller('UsersCtrl',['$scope','$http','$routeParams', function($scope, $http, $routeParams){
+angular.module('GeoFinderApp').controller('UsersCtrl',['$scope','$http','$routeParams',function($scope, $http, $routeParams){
     $scope.NewUser = {};
 
     // when landing on the page, get all user and show them
@@ -9,6 +9,7 @@ angular.module('GeoFinderApp').controller('UsersCtrl',['$scope','$http','$routeP
         .success(function(data) {
             $scope.users = data;
             console.log(data);
+            
         })
         .error(function(data) {
             console.log('Error: ' + data);
@@ -30,6 +31,7 @@ angular.module('GeoFinderApp').controller('UsersCtrl',['$scope','$http','$routeP
         $http.delete('/users/' + id)
             .success(function(data) {
                 $scope.users = data;
+                
             })
             .error(function(data) {
                 console.log('Error:' + data);
@@ -44,6 +46,7 @@ angular.module('GeoFinderApp').controller('UsersCtrl',['$scope','$http','$routeP
                 $scope.NewUser = {};
                 $scope.users = data;
                 console.log('Success' + data);
+                $scope.selected = false;
             })
             .error(function(data) {
                 console.log('Error' + data);
@@ -53,7 +56,8 @@ angular.module('GeoFinderApp').controller('UsersCtrl',['$scope','$http','$routeP
     $scope.UseUser = function(user) {
         console.log(user);
         angular.copy(user, $scope.NewUser)
-        console.log($scope.NewUser);
+        console.log($scope.NewUser)
+        $scope.selected = true;
     };
 }]);
 

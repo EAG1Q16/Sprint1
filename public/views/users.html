@@ -20,8 +20,8 @@
                 <input class="form-control" id="ex4" type="text" ng-model="NewUser.photo" required>
             </div>
             <div class="col-sm-2">
-                <button type="button" class="btn btn-success btn-block" ng-click="CreateUser()">Nuevo</button>
-                <button type="button" class="btn btn-success btn-warning btn-block" ng-click="UpdateUser()">Editar</button>
+                <button type="button" class="btn btn-success btn-block" ng-click="CreateUser()"  ng-disabled="!NewUser.name || !NewUser.email || !NewUser.description || !NewUser.photo || selected">Nuevo</button>
+                <button type="button" class="btn btn-success btn-warning btn-block" ng-click="UpdateUser()" ng-disabled="!NewUser.name || !NewUser.email || !NewUser.description || !NewUser.photo || !selected">Editar</button>
             </div>
         </div>
         <!-- Table -->
